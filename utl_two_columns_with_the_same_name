@@ -1,0 +1,71 @@
+Two columns with the same name
+
+github
+https://github.com/rogerjdeangelis/utl_two_columns_with_the_same_name
+
+inspired by
+https://communities.sas.com/t5/SAS-Communities-Library/SQL-Allows-Multiple-Columns-with-Same-Name/ta-p/475974
+
+
+INPUT
+=====
+
+  sashelp.class
+
+EXAMPLE OUTPUT
+--------------
+
+   WORK.WANT total obs=19
+
+       NAME       NAME
+
+       Alfred     Alfred
+       Alice      Alice
+       Barbara    Barbara
+       Carol      Carol
+    ...
+
+
+PROCESS
+=======
+
+   options validvarname=upcase;
+   proc sql;
+     create
+       view want as
+    select
+      name as name
+     ,name
+    from
+      sashelp.class
+   ;quit;
+
+
+OUTPUT
+======
+
+
+  WORK.WANT total obs=19
+
+    NAME       NAME
+
+    Alfred     Alfred
+    Alice      Alice
+    Barbara    Barbara
+    Carol      Carol
+    Henry      Henry
+    James      James
+    Jane       Jane
+    Janet      Janet
+    Jeffrey    Jeffrey
+    John       John
+    Joyce      Joyce
+    Judy       Judy
+    Louise     Louise
+    Mary       Mary
+    Philip     Philip
+    Robert     Robert
+    Ronald     Ronald
+    Thomas     Thomas
+    William    William
+
